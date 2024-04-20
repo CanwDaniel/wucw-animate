@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    
+  </body>
+
+	<script>
+		const body = document.body;
+		
+		for(let i = 0; i < 283; i++) {
+			const imgs = document.createElement("img");
+			let num = `${i}`.padStart(3, "0");
+			imgs.src = `https://cdn.autonomous.ai/landing-page/the_essential_standing_desk/SD2_Pro_${num}.jpg`;
+			imgs.width = "200";
+			imgs.height = "200";
+			imgs.loading = "lazy";
+			imgs.decoding = "async";
+			imgs.style.display = "block";
+
+			body.appendChild(imgs);
+		}
+	</script>
+</html>
