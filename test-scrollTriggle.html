@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="./tool/gsap.js"></script>
+  <script src="./tool/scrollTrigger.js"></script>
+
+  <style>
+    html,
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    .section {
+      width: 100%;
+      height: 100%;
+    }
+
+    .section-video {
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="section">
+    <video class="section-video" src="./asset/kv.mp4"></video>
+  </div>
+
+  <script>
+    ScrollTrigger.create({
+      trigger: '.section',
+      start: 'top top',
+      end: '+=1000',
+      scrub: true,
+      pin: true,
+      onUpdate(self) {
+        const video = document.querySelector('.section-video');
+        try {
+          video.currentTime = self.progress * video.duration;
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    })
+  </script>
+</body>
+</html>
