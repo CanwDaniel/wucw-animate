@@ -11,8 +11,16 @@
         margin: 0;
       }
 
+			.section1,
+			.section5,
 			.section4 {
 				height: 100vh;
+			}
+
+			.section1,
+			.section5 {
+				text-align: center;
+				line-height: 800px;
 			}
 
       .parallel {
@@ -47,12 +55,14 @@
   </head>
 
   <body>
+		<section class="screen section1">1</section>
     <section class="screen section4">
       <div class="parallel">
         <div class="page1"></div>
         <div class="page2"></div>
       </div>
     </section>
+		<section class="screen section5">5</section>
   </body>
 
   <script src="./tool/gsap.js"></script>
