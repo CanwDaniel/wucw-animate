@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Koelnmesse</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+      }
+
+      .poster {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 625px;
+        min-height: 910px;
+        max-height: 910px;
+        background-image: url(https://d3k81ch9hvuctc.cloudfront.net/company/RaHYDC/images/125e92f2-4914-40c1-aa1b-0bc049d04df3.jpeg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 22px 46px;
+        box-sizing: border-box;
+      }
+
+      .logo {
+        width: 100%;
+        text-align: right;
+      }
+
+      .logo img {
+        max-width: 183px;
+      }
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .content .tit,
+      .content .sub-tit {
+        text-align: center;
+        margin: 0;
+      }
+
+      .content .tit {
+        font-family: Montserrat;
+        font-size: 60px;
+        font-style: italic;
+        color: #f29500;
+        font-weight: 800;
+        line-height: 1;
+      }
+
+      .content .sub-tit {
+        position: relative;
+        font-family: Montserrat;
+        font-weight: 800;
+        font-size: 24px;
+        color: #fff;
+        padding-right: 10px;
+        display: inline-block;
+        line-height: 1;
+        margin-bottom: 10px;
+      }
+
+      .content .sub-tit .icon {
+        position: absolute;
+        top: 2px;
+        right: 0;
+        font-size: 12px;
+      }
+
+      .content img {
+        max-width: 84%;
+        margin-top: 10px;
+      }
+
+      .detail {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0 80px;
+      }
+
+      .detail .date,
+      .detail .num {
+        display: inline-block;
+        text-align: left;
+      }
+
+      .detail .date p {
+        margin: 0;
+      }
+
+      .detail .num p {
+        margin: 0;
+      }
+
+      .detail .date {
+        margin-right: 36px;
+      }
+
+      .detail .d-tit {
+        font-weight: 400;
+        font-size: 12px;
+        color: #ffffff;
+      }
+
+      .detail .d-ctn {
+        font-family: Montserrat;
+        font-weight: 700;
+        font-size: 18px;
+        color: #f29500;
+        line-height: 1;
+        margin-bottom: 2px !important;
+      }
+
+      .detail .location p {
+        margin: 0;
+      }
+
+      .detail .location .d-tit {
+        display: flex;
+        align-items: center;
+      }
+
+      .detail .location .d-tit img {
+        width: 12px;
+        height: 17px;
+        margin-top: 0;
+        margin-right: 4px;
+      }
+
+      .detail .location .d-ctn {
+        font-family: Montserrat;
+        font-weight: bold;
+        font-size: 14px;
+      }
+
+      @media (max-width: 768px) {
+        .poster {
+          background-image: url(https://d3k81ch9hvuctc.cloudfront.net/company/RaHYDC/images/e040b4c8-c409-431a-b860-881313459136.jpeg);
+          max-width: 100%;
+          padding: 16px 24px;
+          height: 100%;
+          min-height: unset;
+          max-height: unset;
+        }
+
+        .logo img {
+          max-width: 100px;
+        }
+
+        .content .tit {
+          font-size: 40px;
+        }
+
+        .content.sub-tit {
+          font-size: 20px;
+          margin-bottom: 10px;
+        }
+
+        .content img {
+          max-width: 100%;
+        }
+
+        .detail {
+          padding: 0;
+        }
+
+        .detail .d-ctn {
+          font-size: 16px;
+          margin-bottom: 5px !important;
+        }
+
+        .detail .location .d-ctn {
+          font-size: 12px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="poster">
+      <div class="logo">
+        <img src="https://d3k81ch9hvuctc.cloudfront.net/company/RaHYDC/images/085a953d-8ea9-4e78-9f00-688975fa467a.png" alt="logo" />
+      </div>
+      <div class="content">
+        <h2 class="tit">INVITATION</h2>
+        <p class="sub-tit">
+          2024 GAMESCOM<span class="icon">®</span>
+        </p>
+        <div class="detail">
+          <div class="date">
+            <p class="d-tit">Date</p>
+            <p class="d-ctn">2024.8.21.-2024.8.25</p>
+          </div>
+          <div class="num">
+            <p class="d-tit">Booth Number</p>
+            <p class="d-ctn">HALL10.1-A029</p>
+          </div>
+          <div class="location">
+            <p class="d-tit">
+              <img src="https://d3k81ch9hvuctc.cloudfront.net/company/RaHYDC/images/9ecc2a9f-34c0-4a02-86e9-4df6d49a3f9c.png" alt="location">
+              Exhibition location
+            </p>
+            <p class="d-ctn">Koelnmesse-Köln,Germany | Messeplatz 1,Cologne</p>
+          </div>
+        </div>
+        <img src="https://d3k81ch9hvuctc.cloudfront.net/company/RaHYDC/images/8ec20a7c-0e7f-4043-890f-b0793434d9ab.jpeg" alt="map" />
+      </div>
+    </div>
+  </body>
+</html>
