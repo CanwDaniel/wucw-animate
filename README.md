@@ -14,3 +14,9 @@
 
 ## test-stack-down
 [test-stack-down](https://canwjerry.github.io/wucw-animate/test-stack-down.html)
+
+## test-move
+[test-move](https://canwjerry.github.io/wucw-animate/test-move.html)
+
+## test-slider
+[test-slider](https://canwjerry.github.io/wucw-animate/test-slider.html)
