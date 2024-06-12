@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>test-slider</title>
+    <style>
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+      }
+
+			.section1,
+			.section5,
+			.section4 {
+				height: 100vh;
+			}
+
+			.section1,
+			.section5 {
+				text-align: center;
+				line-height: 800px;
+			}
+
+      .parallel {
+        width: 100%;
+        height: 100%;
+        margin-top: 0;
+        position: relative;
+        overflow: hidden;
+        z-index: 50;
+        box-sizing: border-box;
+      }
+
+      .page1 {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+				background-color: rgb(245, 50, 83);
+      }
+
+      .page2 {
+        display: flex;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 128em;
+        height: 100%;
+				background-color: rgba(0, 252, 147, 0.63);
+      }
+    </style>
+  </head>
+
+  <body>
+		<section class="screen section1">1</section>
+    <section class="screen section4">
+      <div class="parallel">
+        <div class="page1"></div>
+        <div class="page2"></div>
+      </div>
+    </section>
+		<section class="screen section5">5</section>
+  </body>
+
+  <script src="./tool/gsap.js"></script>
+  <script src="./tool/scrollTrigger.js"></script>
+
+  <script>
+		// 第四屏幕动画
+		// 固定第四屏幕
+    ScrollTrigger.create({
+      trigger: ".section4",
+      start: "top top",
+      end: "+=1000",
+      pin: true,
+      //	markers:true
+    });
+
+		//滚动到目标位置做动画
+		ScrollTrigger.create({
+			trigger: ".parallel",
+      start: "top top",
+      end: "+=1000",
+      scrub: true,
+      animation: gsap.timeline()
+			.fromTo('.page1', {'left': 0}, {'left': '-128em'}, '<')
+			.fromTo('.page2', {'left': '128em'}, {'left': '0'}, '<')
+		})
+  </script>
+</html>
