@@ -56,30 +56,55 @@
 
   <body>
     <div class="card">
-      <span style="--i:0;"></span>
+      <span style="--i: 0"></span>
       <img src="./asset/images/360/0.png" />
-      <span style="--i:1;"></span>
+      <span style="--i: 1"></span>
       <img src="./asset/images/360/1.png" />
-      <span style="--i:2;"></span>
+      <span style="--i: 2"></span>
       <img src="./asset/images/360/2.png" />
-      <span style="--i:3;"></span>
+      <span style="--i: 3"></span>
       <img src="./asset/images/360/3.png" />
-      <span style="--i:4;"></span>
+      <span style="--i: 4"></span>
       <img src="./asset/images/360/4.png" />
-      <span style="--i:5;"></span>
+      <span style="--i: 5"></span>
       <img src="./asset/images/360/5.png" />
-      <span style="--i:6;"></span>
+      <span style="--i: 6"></span>
       <img src="./asset/images/360/6.png" />
-      <span style="--i:7;"></span>
+      <span style="--i: 7"></span>
       <img src="./asset/images/360/7.png" />
-      <span style="--i:8;"></span>
+      <span style="--i: 8"></span>
       <img src="./asset/images/360/8.png" />
-      <span style="--i:9;"></span>
+      <span style="--i: 9"></span>
       <img src="./asset/images/360/9.png" />
-      <span style="--i:10;"></span>
+      <span style="--i: 10"></span>
       <img src="./asset/images/360/10.png" />
-      <span style="--i:11;"></span>
+      <span style="--i: 11"></span>
       <img src="./asset/images/360/11.png" />
     </div>
   </body>
+
+  <script>
+    function getUrl() {
+      var url = encodeURI(window.location.href);
+      var fullyDecoded = false;
+      var decodedUrl = "";
+      try {
+        while (!fullyDecoded) {
+          decodedUrl = decodeURIComponent(url);
+          if (decodedUrl === url) {
+            fullyDecoded = true;
+          }
+          url = decodedUrl;
+        }
+        if (/([^.@\s]+)(\.[^.@\s]+)*@([^.@\s]+\.)+([^.@\s]+)/.test(url)) {
+          url = window.location.origin;
+        } else {
+          url = window.location.href;
+        }
+      } catch (err) {
+        url = window.location.origin;
+      }
+      return url;
+    }
+  </script>
 </html>
