@@ -20,3 +20,6 @@
 
 ## test-slider
 [test-slider](https://canwjerry.github.io/wucw-animate/test-slider.html)
+
+## test-sl
+[test-slider](https://canwjerry.github.io/wucw-animate/test-sl.html)
