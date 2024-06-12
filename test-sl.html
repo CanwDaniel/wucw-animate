@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SL</title>
+
+    <script src="./tool/gsap.js"></script>
+    <script src="./tool/scrollTrigger.js"></script>
+  </head>
+
+  <style>
+    html,
+    body {
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .section1 {
+      position: relative;
+      background: #000;
+      overflow: hidden;
+
+      video {
+        width: 100%;
+        height: 100%;
+      }
+
+      .ctn {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #fff;
+
+        p {
+          margin: 100px 0;
+        }
+
+        .head-tit {
+          text-align: center;
+        }
+
+        .line-tp {
+          width: 1px;
+          height: 100px;
+          background-color: #fff;
+          margin: 0 auto;
+        }
+
+        .line-bt {
+          width: 1px;
+          height: 180px;
+          background-color: #fff;
+          margin: 60px auto 0;
+        }
+      }
+    }
+
+    .section2 {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .line-tp {
+        width: 1px;
+        height: 100px;
+        background-color: #000;
+        margin: 0 auto 50px;
+      }
+
+      .ctn2 {
+        margin-bottom: 100px;
+      }
+    }
+  </style>
+
+  <body>
+    <section class="section1">
+      <video
+        class="featured_video"
+        id="featured_video"
+        data-progressive-video=""
+        autoplay=""
+        muted=""
+        preload="none"
+        playsinline="true"
+        data-webm-large="https://assets.secretlab.co/videos/magnus-pro-splash_video.webm"
+        data-webm-small="https://assets.secretlab.co/videos/magnus-pro-splash_video.webm"
+        data-mp4-large="https://assets.secretlab.co/videos/magnus-pro-splash_video.mp4"
+        data-mp4-small="https://assets.secretlab.co/videos/magnus-pro-splash_video.mp4"
+        style="opacity: 1"
+      >
+        <source
+          src="https://assets.secretlab.co/videos/magnus-pro-splash_video.webm"
+        />
+        <source
+          src="https://assets.secretlab.co/videos/magnus-pro-splash_video.mp4"
+        />
+      </video>
+
+      <div class="ctn">
+        <p class="head-tit">12312312312313123</p>
+        <div class="line-tp"></div>
+        <p>asdasdasdasdasdasdasdasdasdasdasdasdasdas</p>
+        <p>asdasdasdasdasdasdasdasdasdasdasdasdasdas</p>
+        <p>asdasdasdasdasdasdasdasdasdasdasdasdasdas</p>
+        <p>asdasdasdasdasdasdasdasdasdasdasdasdasdas</p>
+        <div class="line-bt"></div>
+      </div>
+    </section>
+
+    <section class="section2">
+      <div class="line-tp"></div>
+      <div class="ctn2">22222</div>
+    </section>
+  </body>
+
+  <script>
+    ScrollTrigger.create({
+      trigger: '.section1',
+      start: 'top top',
+      end: '+=1000',
+      // scrub: true, // 随着滚动条滚动
+      pin: true, // 固定section
+      markers: true, // 标记在图上
+    })
+
+    ScrollTrigger.create({
+      trigger: '.ctn',
+      // top 跟 top 指的是只有你的鼠标是不是经过了我这个盒子时候材会触发
+      // top-=500 距离顶部500像素以上就可以跟着动了
+      start: 'top-=1200',
+      end: '+=1000',
+      scrub: true, // 滚动距离和滚动条距离
+      animation: gsap.timeline()
+      .fromTo('.featured_video', { opacity: 1 }, { opacity: .35 })
+      .fromTo('.ctn', { bottom: '-120%' }, { bottom: '0' }, '<')
+      // animation: gsap.timeline() // 使用时间线
+      // // 从哪开始到哪结束 '<' 让上一个动作和我们当前动作一起走
+      // .fromTo('.color1', {'margin-left': '90em', opacity: 0}, {'margin-left': 0, opacity: 1}, '<')
+      // .fromTo('.color2', {'margin-left': '100em', scale: 1.3}, {'margin-left': 0, scale: 1}, '<')
+      // .fromTo('.color3', {'margin-left': '110em', scale: 1.6}, {'margin-left': 0, scale: 1}, '<')
+      // .fromTo('.color4', {'margin-left': '120em', scale: 1.9}, {'margin-left': 0, scale: 1}, '<')
+      // // 恢复成起始状态 '>'等着前四个都做完后再一起往外走
+      // .fromTo('.color1', {'margin-left': '0', opacity: 1}, {'margin-left': '-120em', opacity: 1}, '>')
+      // .fromTo('.color2', {'margin-left': '0', scale: 1}, {'margin-left': '-110em', scale: 1.3}, '<')
+      // .fromTo('.color3', {'margin-left': '0', scale: 1}, {'margin-left': '-100em', scale: 1.6}, '<')
+      // .fromTo('.color4', {'margin-left': '0', scale: 1}, {'margin-left': '-90em', scale: 1.9}, '<')
+    })
+  </script>
+</html>
