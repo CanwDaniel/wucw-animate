@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img
+      class="t4s-img-as-bg t4s-d-none t4s-d-md-block img-color-item"
+      src=""
+      alt="{{ bk_stt.tab_image_alt }}"
+      data-src="{{ tab_image |  image_url  }}"
+    />
+    
+    <script>
+      const ob = new IntersectionObserver(
+        (entries) => {
+          // 交叉改变后运行
+          // 它会把所有的交叉结果通过这个参数传给你，叫entries，它是一个数组，打印出来的需要注意两个属性，一个是isIntersecting（这张图片跟视口是不是满足我们的交叉规则），一个是target（目前观察到的元素）
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              const img = entry.target;
+              img.src = img.dataset.src;
+
+              // cancel listen
+              ob.unobserve(img);
+            }
+          }
+        },
+        {
+          // root: null, // 你要观察的元素跟谁进行交叉。这里只能填父元素或者父元素的父元素。如果说你要判断观察的元素跟视口的交叉的话，那么这里就填null。默认值也是null
+          // rootMargin: , // 对交叉范围进行扩张，或者收缩。如果rootMargin写的是10，那么就表示说针对这个视口，我再向外扩充10个像素，那就是视口放大了10个像素，也可以理解为元素距离视口10个像素的时候就算交叉了
+          threshold: 0, // 表示交叉的阈值，这里的值填写的范围是0到1，比如说我这里填写的是0.5，就是说我观察的这个目标，它必须要有一半跟这个视口交叉的时候，才会触发这个回调的执行，当你填0的时候就表示我只要碰上了，他就会执行这个回调，如果你传1的话它就必须要完全进入这个视口，才会执行这个回调
+        }
+      );
+    </script>
+  </body>
+</html>
