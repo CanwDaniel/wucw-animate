@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gsap</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <style>
+      body {
+        height: 100vh;
+        display: flex;
+        
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+
+    <div>
+      <button onclick="play()">play</button>
+      <button onclick="pause()">pause</button>
+    </div>
+  </body>
+
+  <script>
+    // gsap.to('.box', {
+    //   duration: 1,
+    //   x: 200,
+    //   repeat: Infinity, // Infinity / -1
+    //   repeatDelay: 1,
+    //   // delay: 1,
+    //   yoyo: true,
+    //   rotate: 360,
+    //   border: '10px solid orange',
+    //   borderRadius: '50%',
+    //   stagger: .5, //第一个会比第二个早动0.5秒
+    //   ease: 'bounce'
+    // });
+
+    // gsap.from('.box', { duration: 1, x: 200 });
+    // gsap.fromTo('.box', { duration: 1, x: -200, backgroundColor: 'blue' }, { duration: 1, x: 200, backgroundColor: 'pink' });
+    // gsap.set('.box', { duration: 1, y: 200 });
+
+    // const obj = { num: 2 };
+    // gsap.to(obj, {
+    //   duration: 2,
+    //   num: 100,
+    //   onUpdate: () => {
+    //    console.log(obj.num); 
+    //   }
+    // })
+
+    // gsap.from('.box', {
+    //   duration: 1,
+    //   stagger: 0.5,
+    //   width: '50px',
+    //   height: '50px',
+    //   opacity: 0,
+    //   repeatDelay: 1,
+    //   repeat: -1
+    // })
+
+    // --------
+
+    // gsap.from('.box', {
+    //   duration: 1,
+    //   stagger: 0.5,
+    //   width: '50px',
+    //   height: '50px',
+    //   opacity: 0,
+    // })
+
+    // gsap.to('.box', {
+    //   duration: 1,
+    //   stagger: 0.3,
+    //   x: 100,
+    //   delay: 1,
+    // })
+
+    // --------
+
+    // -------- TIMELINE ----------
+
+    // const tl = gsap.timeline({
+    //   repeat: -1,
+    //   yoyo: true,
+    //   default: {
+    //     duration: 1,
+    //   }
+    // });
+
+    // tl.from('.box', {
+    //   stagger: 0.5,
+    //   width: '50px',
+    //   height: '50px',
+    //   opacity: 0,
+    // })
+
+    // tl.to('.box', {
+    //   stagger: 0.3,
+    //   x: 50,
+    // })
+
+    // -------- TIMELINE ----------
+
+    // -------- control ----------
+
+    const tween = gsap.to('.box', {
+      duration: 1,
+      x: 50,
+      repeat: -1,
+      stagger: 0.3,
+      yoyo: true,
+    })
+
+    function pause() {
+      tween.pause();
+    }
+
+    function play() {
+      tween.play();
+    }
+
+
+
+    // -------- control ----------
+
+  </script>
+</html>
