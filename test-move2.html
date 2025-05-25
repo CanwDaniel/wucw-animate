@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>test-move</title>
+    <script src="./tool/gsap.js"></script>
+    <script src="./tool/scrollTrigger.js"></script>
+    <style>
+      html {
+        height: 100%;
+      }
+
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      .section-4,
+      .section-6 {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #000;
+        background-color: pink;
+      }
+
+      .section-5 {
+        width: 100%;
+        height: 100vh;
+      }
+
+      .wrap-main {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+
+      .wrap-main .img {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 30%;
+      }
+
+      .wrap-main .img img {
+        max-width: 100%;
+      }
+
+      .wrap-main .img i {
+        position: absolute;
+        top: 0;
+        right: -110px;
+        width: 100px;
+        height: 1px;
+        background-color: #000;
+        opacity: 0;
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: -4px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background-color: #000;
+        }
+      }
+
+      .wrap-main .img p {
+        position: absolute;
+        right: -220px;
+        top: -10px;
+        margin: 0;
+        opacity: 0;
+      }
+
+      .wrap-main .img:nth-child(1) {
+        top: 200px;
+        z-index: 3;
+      }
+
+      .wrap-main .img:nth-child(2) {
+        top: 250px;
+        z-index: 2;
+      }
+
+      .wrap-main .img:nth-child(3) {
+        top: 300px;
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="section-4">
+      <h1>Test</h1>
+    </section>
+
+    <section class="section-5">
+      <div class="wrap-main">
+        <div class="img img-item-1">
+          <img src="./asset/section-5-1.png" />
+          <i></i>
+          <p>test picture 1</p>
+        </div>
+
+        <div class="img img-item-2">
+          <img src="./asset/section-5-2.png" />
+          <i></i>
+          <p>test picture 2</p>
+        </div>
+
+        <div class="img img-item-3">
+          <img src="./asset/section-5-3.png" />
+          <i></i>
+          <p>test picture 3</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-6">
+      <h1>End</h1>
+    </section>
+
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      gsap.to(".section-5", {
+        scrollTrigger: {
+          trigger: ".section-5",
+          pin: true,
+          markers: true,
+          start: 'top top',
+          end: '+=150%',
+          onUpdate(self) {
+            const percent = Math.floor(self.progress * 100);
+
+            // TODO: item 1
+            if(percent < 40) {
+              const moveDistance = percent * 1.5; // 增加移动距离
+              const opacity = percent / 40;
+              
+              gsap.to('.img-item-1', {
+                y: -moveDistance,
+                duration: 0.3,
+                ease: "power2.out" // 添加缓动效果
+              });
+              
+              gsap.to('.img-item-1 i, .img-item-1 p', {
+                opacity: opacity,
+                duration: 0.3,
+                ease: "power2.out"
+              });
+
+              gsap.to('.img-item-2 i, .img-item-2 p', {
+                opacity: 0,
+                duration: 0.3,
+                ease: "power2.out"
+              });
+
+              gsap.to('.img-item-3 i, .img-item-3 p', {
+                opacity: 0,
+                duration: 0.3,
+                ease: "power2.out"
+              });
+            }
+            // TODO: item 2
+            else if(percent > 40 && percent < 70) {
+              gsap.to('.img-item-1 i, .img-item-1 p', {
+                opacity: 0,
+                duration: 0.3,
+                ease: "power2.out"
+              });
+
+              gsap.to('.img-item-3 i, .img-item-3 p', {
+                opacity: 0,
+                duration: 0.3,
+                ease: "power2.out"
+              });
+
+              const moveDistance = (percent - 40) * 1.5;
+              const opacity = (percent - 40) / 30;
+              
+              gsap.to('.img-item-2', {
+                y: -moveDistance,
+                duration: 0.3,
+                ease: "power2.out"
+              });
+              
+              gsap.to('.img-item-2 i, .img-item-2 p', {
+                opacity: opacity,
+                duration: 0.3,
+                ease: "power2.out"
+              });
+            }
+            // TODO: item 3
+            else if(percent > 70 && percent < 100) {
+              gsap.to('.img-item-2 i, .img-item-2 p', {
+                opacity: 0,
+                duration: 0.3,
+                ease: "power2.out"
+              });
+
+              // const moveDistance = (percent - 70) * 1.5;
+              const opacity = (percent - 70) / 30;
+              
+              // gsap.to('.img-item-3', {
+              //   y: -moveDistance,
+              //   duration: 0.3,
+              //   ease: "power2.out"
+              // });
+              
+              gsap.to('.img-item-3 i, .img-item-3 p', {
+                opacity: opacity,
+                duration: 0.3,
+                ease: "power2.out"
+              });
+            }
+          }
+        },
+      });
+    </script>
+  </body>
+</html>
