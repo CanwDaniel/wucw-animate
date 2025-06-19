@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+      .section-1,
+      .section-3 {
+        height: 100vh;
+        background-color: rgba(86, 243, 112, 0.932);
+      }
+
+      .section-3 {
+        background-color: rgba(230, 102, 102, 0.733);
+      }
+
+      .section-2 {
+        height: 100vh;
+        position: relative;
+      }
+
+      .bg-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: lemonchiffon;
+        z-index: -1;
+      }
+
+      .front-img {
+        width: 100%;
+        height: 50%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(226, 43, 119);
+        z-index: 2;
+      }
+
+      .item-1,
+      .item-2 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50vh;
+      }
+    </style>
+  </head>
+
+  <body>
+    <section class="section-1">Start</section>
+
+    <section class="section-2">
+      <img class="bg-img" src="" alt="bg-img" />
+
+      <div class="item-1">icon-1</div>
+      <div class="item-2">icon-2</div>
+
+      <img class="front-img" src="" alt="front-img" />
+    </section>
+
+    <section class="section-3">End</section>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".section-2",
+          start: "top top",
+          end: "bottom+=200 top",
+          scrub: 1,
+          pin: true,
+          markers: true,
+        }
+      });
+
+      tl.fromTo(
+        ".item-1",
+        { yPercent: 50, duration: 2, opacity: 0 },
+        { yPercent: 0, duration: 2, opacity: 1 }
+      )
+      .fromTo(
+        ".item-2",
+        { yPercent: 50, duration: 2, opacity: 0 },
+        { yPercent: -100, duration: 2, opacity: 1 }
+      )
+      .to(".item-1", { duration: 2, opacity: 0 }, "<")
+      .to({}, { duration: 1 });
+    </script>
+  </body>
+</html>
