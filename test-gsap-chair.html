@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    .chair-1,
+    .chair-3 {
+      height: 100vh;
+      width: 100%;
+      background-color: burlywood;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .chair-2 {
+      height: 100vh;
+      background-color: rgb(93, 208, 243);
+    }
+
+    .picture1,
+    .picture2,
+    .picture3 {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+    }
+
+    .picture1 {
+      z-index: 3;
+    }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <section class="chair-1">
+      Start
+    </section>
+
+    <section class="chair-2">
+      <div class="picture1">
+        <img src="" alt="picture-1" style="background-color: aqua;" width="300" height="300">
+      </div>
+      <div class="picture2">
+        <img src="" alt="picture-2" style="background-color: pink;" width="300" height="300">
+        <p></p>
+      </div>
+      <div class="picture3">
+        <img src="" alt="picture-3" style="background-color: yellowgreen;" width="300" height="300">
+        <p></p>
+      </div>
+    </section>
+
+    <section class="chair-3">
+      End
+    </section>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+      gsap.registerPlugin(ScrollTrigger);
+
+      const tl = gsap.timeline({
+        defaults: {
+          duration: 4
+        },
+
+        scrollTrigger: {
+          trigger: '.chair-2',
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+          pin: true,
+          markers: true
+        }
+      });
+
+      tl
+      .to('.picture1', { zIndex: 3 })
+      .to('.picture2', { zIndex: 3 })
+      .to('.picture1', { zIndex: 1 }, '<')
+      .to('.picture3', { zIndex: 3 })
+      .to('.picture2', { zIndex: 1 }, '<')
+      
+    }, { once: true });
+  </script>
+</body>
+</html>
