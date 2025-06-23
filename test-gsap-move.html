@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+      .section-3 {
+        height: 100vh;
+        background-color: rgba(230, 102, 102, 0.733);
+      }
+
+      .main {
+        height: 100vh;
+        position: relative;
+        background-color: #000;
+        overflow: hidden;
+      }
+
+      .section-1 {
+        position: absolute;
+        z-index: 3;
+        width: 100%;
+
+        .bg-1 {
+          width: 100%;
+          height: 100vh;
+          background-color: rgba(86, 243, 112, 0.932);
+          opacity: 1;
+          will-change: opacity;
+        }
+
+        .box {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          height: 500px;
+          width: 500px;
+          text-align: center;
+          background-color: antiquewhite;
+        }
+      }
+
+      .section-2 {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        height: 100vh;
+
+        .bg-2 {
+          width: 100%;
+          height: 100vh;
+          background-color: rgba(0, 0, 0);
+          opacity: 0;
+          will-change: opacity;
+        }
+
+        .box {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          height: 500px;
+          width: 500px;
+          text-align: center;
+          background-color: antiquewhite;
+        }
+
+        .item-1,
+        .item-2,
+        .item-3 {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          height: 50vh;
+          width: 100%;
+          text-align: center;
+          color: #fff;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="section-1">
+        <div class="bg-1"></div>
+        <div class="box">产品1</div>
+      </div>
+
+      <div class="section-2">
+        <div class="bg-2"></div>
+        <div class="box">产品1</div>
+
+        <div class="item-1">
+          <p>icon-1</p>
+          <p>icon-1</p>
+          <p>icon-1</p>
+        </div>
+
+        <div class="item-2">
+          <p>icon-2</p>
+          <p>icon-2</p>
+          <p>icon-2</p>
+        </div>
+        
+        <div class="item-3">
+          <p>icon-3</p>
+          <p>icon-3</p>
+          <p>icon-3</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-3">End</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+
+    <script>
+      document.addEventListener(
+        "DOMContentLoaded",
+        (event) => {
+          gsap.registerPlugin(ScrollTrigger);
+
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: ".main",
+              pin: true,
+              scrub: 1,
+              start: "top top",
+              end: "bottom+=500 top",
+              markers: true,
+            },
+          });
+
+          tl.to(".section-1 .bg-1", { duration: 4, opacity: 0 })
+            .to(".section-1 .box", { duration: 0, opacity: 0 })
+            .to(".section-1", { zIndex: 1 }, "+=1")
+            .to(".section-2 .bg-2", { duration: 4, opacity: 1 })
+            .to(".section-2 .box", { duration: 8, opacity: 1, zIndex: 3, yPercent: 0 }, "<")
+            .to(".section-2", { zIndex: 3 }, "+=1")
+            .fromTo(
+              ".section-2 .item-1",
+              { yPercent: 0, duration: 4, zIndex: 1, opacity: 0 },
+              { yPercent: -100, duration: 4, zIndex: 2, opacity: 1 }
+            )
+            .fromTo(
+              ".section-2 .item-2",
+              { yPercent: 0, duration: 4, zIndex: 1, opacity: 0 },
+              { yPercent: -100, duration: 4, zIndex: 2, opacity: 1 },
+              "+=2"
+            )
+            .fromTo(
+              ".section-2 .item-1",
+              { yPercent: -100, duration: 4, zIndex: 2, opacity: 1 },
+              { yPercent: -150, duration: 4, zIndex: 1, opacity: 0 },
+              "<"
+            )
+            .fromTo(
+              ".section-2 .item-3",
+              { yPercent: 0, duration: 4, zIndex: 1, opacity: 0 },
+              { yPercent: -100, duration: 4, zIndex: 2, opacity: 1 },
+              "+=2"
+            )
+            .fromTo(
+              ".section-2 .item-2",
+              { yPercent: -100, duration: 4, zIndex: 2, opacity: 1 },
+              { yPercent: -150, duration: 4, zIndex: 1, opacity: 0 },
+              "<"
+            )
+            .to({}, { duration: 2 });
+        },
+        { once: true }
+      );
+    </script>
+  </body>
+</html>
