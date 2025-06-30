@@ -23,3 +23,12 @@
 
 ## test-sl
 [test-slider](https://canwjerry.github.io/wucw-animate/test-sl.html)
+
+## test-gsap-scale
+[test-slider](https://canwjerry.github.io/wucw-animate/test-gsap-scale.html)
+
+## test-gsap-move
+[test-slider](https://canwjerry.github.io/wucw-animate/test-gsap-move.html)
+
+## test-gsap-chair
+[test-slider](https://canwjerry.github.io/wucw-animate/test-gsap-chair.html)
