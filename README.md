@@ -22,13 +22,13 @@
 [test-slider](https://canwdaniel.github.io/wucw-animate/test-slider.html)
 
 ## test-sl
-[test-slider](https://canwdaniel.github.io/wucw-animate/test-sl.html)
+[test-sl](https://canwdaniel.github.io/wucw-animate/test-sl.html)
 
 ## test-gsap-scale
-[test-slider](https://canwdaniel.github.io/wucw-animate/test-gsap-scale.html)
+[test-gsap-scale](https://canwdaniel.github.io/wucw-animate/test-gsap-scale.html)
 
 ## test-gsap-move
-[test-slider](https://canwdaniel.github.io/wucw-animate/test-gsap-move.html)
+[test-gsap-move](https://canwdaniel.github.io/wucw-animate/test-gsap-move.html)
 
 ## test-gsap-chair
-[test-slider](https://canwdaniel.github.io/wucw-animate/test-gsap-chair.html)
+[test-gsap-chair](https://canwdaniel.github.io/wucw-animate/test-gsap-chair.html)
