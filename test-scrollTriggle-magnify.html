@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script src="./tool/gsap.js"></script>
+    <script src="./tool/scrollTrigger.js"></script>
+
+    <style>
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+      }
+
+      .container {
+        height: 3414px;
+        position: relative;
+      }
+
+      .section-1 {
+        width: 100%;
+        height: 100vh;
+        z-index: -1;
+
+        video {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .section-2 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        background-color: #000;
+        mix-blend-mode: darken;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 5;
+        opacity: 0;
+
+        .title {
+          color: #fff;
+          font-size: 3000px;
+          white-space: nowrap;
+        }
+      }
+
+      .section-3 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        min-height: 100vh;
+        background-color: #000;
+        z-index: 7;
+        opacity: 0;
+        margin-top: 500px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .title {
+          color: #fff;
+          font-size: 56px;
+          white-space: nowrap;
+          margin-bottom: 80px;
+          margin-top: 0;
+
+          span {
+            color: red;
+          }
+        }
+
+        .box {
+          max-width: 100%;
+          color: #fff;
+          padding: 0 270px;
+          box-sizing: border-box;
+        }
+
+        .box-1 {
+          .video {
+            width: 100%;
+            height: 690px;
+            background-color: red;
+          }
+
+          .content {
+            font-family: Inter;
+            font-weight: 400;
+            font-size: 18px;
+            color: #A5A5A5;
+            line-height: 26px;
+            max-width: 1000px;
+            margin: 80px auto 0;
+            text-align: center;
+
+            i {
+              font-style: normal;
+              color: #FF4200;
+            }
+          }
+        }
+
+        .box-wrap {
+          display: flex;
+          margin-top: 160px;
+          gap: 32px;
+          margin-bottom: 80px;
+
+          .box-2,
+          .box-3 {
+            .video {
+              width: 100%;
+              height: 450px;
+              background-color: red;
+            }
+
+            .title {
+              font-family: Inter;
+              font-weight: 600;
+              font-size: 24px;
+              color: #FFFFFF;
+              line-height: 1;
+              margin-top: 48px;
+              margin-bottom: 24px;
+            }
+
+            .content {
+              font-family: Inter;
+              font-weight: 400;
+              font-size: 18px;
+              color: #86868D;
+              line-height: 26px;
+              margin: 0;
+
+              i {
+                font-style: normal;
+                color: #FF4200;
+              }
+            }
+          }
+        }
+
+        .btn {
+          background: #FF4200;
+          border-radius: 24px;
+          font-family: Inter;
+          font-weight: 600;
+          font-size: 16px;
+          color: #FFFFFF;
+          display: inline-block;
+          width: 320px;
+          height: 48px;
+          line-height: 48px;
+          text-align: center;
+          padding: 0 24px;
+          box-sizing: border-box;
+          margin-bottom: 20px;
+
+          &:hover {
+            background: #ff601c;
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="fix">
+        <div class="section-1">
+          <video
+            autoplay
+            loop
+            muted
+            playsinline
+            class="section-video"
+            src="https://cdn.shopify.com/videos/c/o/v/05b184c044104e58b38a0934076e6d28.mp4"
+          >
+          </video>
+        </div>
+
+        <div class="section-2">
+          <p class="title">
+            <span>Dynamic</span> Auto-Tracking Lumbar
+          </p>
+        </div>
+
+        <div class="section-3">
+          <p class="title">
+            <span>Dynamic</span> Auto-Tracking Lumbar
+          </p>
+
+          <div class="box">
+            <div class="box-1">
+              <div class="video"></div>
+              <div class="content">
+                Engineered with a motion-responsive <i>extended forward</i>, the lumbar mechanism, the lumbar of Phantom 4 Series gaming chairs reacts to your body’s every move, delivering uninterrupted lumbar support in any posture you sit. 
+              </div>
+            </div>
+
+            <div class="box-wrap">
+              <div class="box-2">
+                <div class="video"></div>
+                <p class="title">15-Level Depth Adjustment</p>
+                <p class="content">The lumbar can be <i>extended forward</i> to increase support or relea The lumbar can be extended forward to increase support or relea The lumbar can be extended forward to increase support or relea</p>
+              </div>
+  
+              <div class="box-3">
+                <div class="video"></div>
+                <p class="title">4-Way Auto-Tracking</p>
+                <p class="content">In extended positions, <i>the lumbar can swivel</i> left or right by 5 In extended positions, the lumbar can swivel left or right by 5 In extended positions, the lumbar can swivel left or right by 5</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="#" class="btn">Learn How Auto-Tracking Works+</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="other" style="height: 100vh; width: 100%; background-color: red;"></div>
+
+    <script>
+      gsap.registerPlugin(ScrollTrigger); 
+
+      ScrollTrigger.create({
+        trigger: ".fix",
+        pin: true,
+        start: "top top",
+        end: "+=1000",
+        markers: true,
+      })
+
+      ScrollTrigger.create({
+        trigger: ".container",
+        scrub: true,
+        start: "top top",
+        end: "+=1000",
+        animation: gsap.timeline()
+        .to(".section-2", { opacity: 1 })
+        .to(".section-2 .title", { duration: 3, fontSize: "56px" }, '<')
+        .to(".section-3", { opacity: 1 })
+      })
+    </script>
+  </body>
+</html>
